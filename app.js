@@ -5,7 +5,7 @@ var app = express();
 var PORT = 3000;
 
 app.get('/', function(req, res) {
-  res.sendStatus(200).send("Webhooks testing.");
+  res.send("W E B H O O K S  T E S T I N G");
 });
 
 app.post('/piano-webhook-data', function(req, res) {
