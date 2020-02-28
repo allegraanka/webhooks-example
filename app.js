@@ -4,6 +4,10 @@ const TPSecurityUtils = require('./TPSecurityUtils');
 var app = express();
 var PORT = 3000;
 
+app.get('/', function(req, res) {
+  res.sendStatus(200).send("Webhooks testing.");
+});
+
 app.post('/piano-webhook-data', function(req, res) {
   console.log('received piano data: ', req.body);
   var data = req.body;
