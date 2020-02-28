@@ -52,7 +52,7 @@ var decrypt = function ( keyString, data ) {
 		data = data.substr( 0, pos );
 	}
 
-//	data = urldesafe( data );
+	// data = urldesafe( data );
 
 	if ( keyString.length > 32 ) {
 		keyString = keyString.substr( 0, 32 );
@@ -68,7 +68,7 @@ var decrypt = function ( keyString, data ) {
 	cypher.open( keyString, iv );
 
 	data = data.replace( /\-/g, '+').replace( /\_/g, '/' );
-	data =  new Buffer( data, 'base64' );
+	data =  new Buffer.from( data, 'base64' );
 
 	var cipherText = cypher.decrypt( data ).toString();
 
@@ -82,13 +82,13 @@ var decrypt = function ( keyString, data ) {
 }
 
 var urlensafe = function ( data ) {
-	data = new Buffer( data ).toString( 'base64' )
+	data = new Buffer.from( data ).toString( 'base64' )
 	return data.replace( /\+/g, '-' ).replace( /\//g, '_' ).replace( /=+$/, '' );
 }
 
 var urldesafe = function ( data ) {
 	data = data.replace( /\-/g, '+').replace( /\_/g, '/' );
-	return new Buffer( data, 'base64' ).toString( );
+	return new Buffer.from( data, 'base64' ).toString( );
 }
 
 var hashHmacSha256 = function ( key, value ) {
