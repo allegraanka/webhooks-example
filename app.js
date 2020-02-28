@@ -2,7 +2,7 @@ var express = require('express');
 const TPSecurityUtils = require('./TPSecurityUtils');
 
 var app = express();
-var PORT = 3000;
+var PORT = process.env.port || 3000;
 
 app.get('/', function(req, res) {
   res.send("W E B H O O K S  T E S T I N G");
